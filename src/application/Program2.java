@@ -14,7 +14,8 @@ public class Program2 {
 
 		DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
 		System.out.println("=== TESTE 7: department findById ===");
-		Department department = departmentDao.findById(2);
+		System.out.println("Enter the id to search: ");
+		Department department = departmentDao.findById(sc.nextInt());
 		System.out.println(department);
 
 		System.out.println("\n=== TESTE 8: seller findAll ===");
@@ -24,22 +25,22 @@ public class Program2 {
 		}
 
 		System.out.println("\n=== TESTE 9: department insert ===");
-		department = new Department(null, "Storebooks");
+		System.out.println("Enter new department: ");
+		department = new Department(null,sc.next());
 		departmentDao.insert(department);
-		System.out.println("Inserted! New id = " + department.getId());
+		System.out.println("Inserted! New id = " + department.getId()+"!");
 
 		System.out.println("\n=== TESTE 10: department update ===");
 		System.out.println("Enter id for Update name: ");
 		department = departmentDao.findById(sc.nextInt());
-		System.out.println("Enter name for Update");
+		System.out.println("Enter name: ");
 		department.setName(sc.next());
 		departmentDao.update(department);
-		System.out.println("Update completed");
+		System.out.println("Update completed!");
 
 		System.out.println("\n=== TESTE 11: department delete ===");
 		System.out.println("Enter id for delete test: ");
-		int id = sc.nextInt();
-		departmentDao.deleteById(id);
-		System.out.println("Deleted completed");
+		departmentDao.deleteById(sc.nextInt());
+		System.out.println("Deleted completed!");
 		sc.close();
 	}}
